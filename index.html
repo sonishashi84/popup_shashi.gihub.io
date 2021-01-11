@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/style.css" type="text/css" charset="utf-8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $("button").click(function () {
+      $("button").removeClass("active");
+      $(this).addClass("active");
+    });</script>
+  <script src="./js/local.js"></script>
+
+</head>
+
+<body>
+
+  <div class="navbar">
+    <a href="#home">Tour</a>
+    <a href="#news">Product</a>
+    <a href="#contact">Features</a>
+    <a href="#home">Enterprice</a>
+    <a href="#news">support</a>
+    <a href="#contact">Pricing</a>
+    <a href="#contact">Cart</a>
+  </div>
+  <h2>Modal Example</h2>
+
+  <!-- Trigger/Open The Modal -->
+  <!-- <button id="myBtn">Open Modal</button> -->
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="title"><b>More Deals For You!</b></div>
+      <span class="close">&times;</span>
+
+      <!-- <label value="MMTFLAT500" id="copy_value">MMTFLAT500</label>
+<button onclick="copy_txt()">Copy text</button> -->
+
+      <div class="box1">
+        <div class="box1_txt1"><b>Flat</b></div>
+        <div class="box1_txt2"><b>RS.500 <span>Off</span></b></div>
+        <input type="text" value="WEBENG500" id="c_code1">
+        <div class="box1_txt3">*Valid on Min 3 Tickets Booking </div>
+        <button onclick="copy_txt('c_code1','btn1');" id="btn1" class="copy_btn active" type="button">COPY CODE</button>
+      </div>
+      <div class="box2">
+        <div class="box2_txt1"><b>Flat</b></div>
+        <div class="box2_txt2"><b>RS.300 <span>Off</span></b></div>
+        <input type="text" value="SHASHI300" id="c_code2">
+        <div class="box2_txt3">*Valid on Min 2 Tickets Booking </div>
+        <button onclick="copy_txt('c_code2','btn2');" id="btn2" class="copy_btn" type="button">COPY CODE</button>
+      </div>
+      <div class="box3">
+        <div class="box3_txt1"><b>Flat</b></div>
+        <div class="box3_txt2"><b>RS.150 <span>Off</span></b></div>
+        <input type="text" value="COVID150" id="c_code3">
+        <div class="box3_txt3">*Valid on Min 2 Tickets Booking </div>
+        <button onclick="copy_txt('c_code3','btn3');" id="btn3" class="copy_btn" type="button">COPY CODE</button>
+      </div>
+      <div class="box4">
+        <div class="box4_txt1"><b>Flat</b></div>
+        <div class="box4_txt2"><b>RS.100 <span>Off</span></b></div>
+        <input type="text" value="SALE100" id="c_code4">
+        <div class="box4_txt3">*Valid on Min 2 Tickets Booking </div>
+        <button onclick="copy_txt('c_code4','btn4');" id="btn4" class="copy_btn" type="button">COPY CODE</button>
+      </div>
+    </div>
+
+  </div>
+  <div class="main">
+    <form action="">
+
+      <h1>Apply Coupon Code below</h1>
+      <p>You just need to select suggested coupon code from above pop up</p>
+      <hr>
+      <div class="container">
+        <label><b>Coupon Code</b></label>
+        <input type="text" placeholder="Apply coupon code here" id="txtbox1" required>
+
+        <label><b>Full Name</b></label>
+        <input type="text" placeholder="Full Name" id="txtbox2" required>
+
+        <label><b>Email Id</b></label>
+        <input type="text" placeholder="Email Id" id="txtbox3" required>
+        <hr>
+      </div>
+    </form>
+
+    <!-- modal code starts here -->
+
+  </div>
+</body>
+<script>
+
+
+  // Get the modal
+  var modal = document.getElementById("myModal");
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks the button, open the modal 
+  // btn.onclick = function() {
+  //   modal.style.display = "block";
+  // }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function () {
+    modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  /*js for show pop up on scroll*/
+  window.onscroll = function () { myFunction() };
+
+  function myFunction() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      document.getElementById("myModal").className = "modalshow";
+    } else {
+      document.getElementById("myModal").className = "";
+    }
+  }
+  /*js ends for show pop up on scroll*/
+
+  /*js for copy text*/
+  // function copy_txt(code_id, btn_id) {
+  //   var elems = document.getElementsByClassName("copy_btn");
+  //   console.log(elems.length);
+  //   console.log(code_id);
+  //   console.log(btn_id);
+  //   for (var i = 0; i < (elems.length); i++) {
+  //     console.log(elems[i].disabled);
+  //     console.log(i);
+  //     if (elems[i].disabled) {
+  //       console.log('called1');
+  //       elems[i].disabled = false;
+  //       elems[i].innerHTML = "COPY CODE";
+  //       elems[i].classList.remove("btn-disabled");
+
+  //       var copyText = document.getElementById(code_id);
+  //       copyText.select();
+  //       copyText.setSelectionRange(0, 99999);
+  //       document.execCommand("copy");
+  //       document.getElementById(btn_id).disabled = true;
+  //       document.getElementById(btn_id).innerHTML = "CODE COPIED";
+  //       document.getElementById(btn_id).classList.add("btn-disabled");
+  //     } else {
+  //       var copyText = document.getElementById(code_id);
+  //       copyText.select();
+  //       copyText.setSelectionRange(0, 99999);
+  //       document.execCommand("copy");
+  //       document.getElementById(btn_id).disabled = true;
+  //       document.getElementById(btn_id).innerHTML = "CODE COPIED";
+  //       document.getElementById(btn_id).classList.add("btn-disabled");
+  //     }
+  //   }
+  // }
+
+function copy_txt(code_id, btn_id) {
+var elems = document.getElementsByClassName("copy_btn");
+console.log(elems.length);
+console.log(code_id);
+console.log(btn_id);
+for (var i = 0; i < (elems.length); i++) {
+console.log(elems[i].disabled);
+console.log(i);
+if (elems[i].disabled) {
+console.log('called1');
+elems[i].disabled = false;
+elems[i].innerHTML = "COPY CODE";
+elems[i].classList.remove("btn-disabled");
+}
+}
+var copyText = document.getElementById(code_id);
+copyText.select();
+copyText.setSelectionRange(0, 99999);
+document.execCommand("copy");
+document.getElementById(btn_id).disabled = true;
+document.getElementById(btn_id).innerHTML = "CODE COPIED";
+document.getElementById(btn_id).classList.add("btn-disabled");
+}
+</script>
+
+</html>
